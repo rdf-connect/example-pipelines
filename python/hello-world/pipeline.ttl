@@ -1,0 +1,32 @@
+@prefix rdfc: <https://w3id.org/rdf-connect#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+
+
+### Import runners and processors
+<> owl:imports <./.venv/lib/python3.13/site-packages/rdfc_runner/index.ttl>.
+<> owl:imports <./.venv/lib/python3.13/site-packages/rdfc_log_processor/processor.ttl>.
+
+
+### Define the channels
+<channel> a rdfc:Writer, rdfc:Reader.
+
+
+### Define the pipeline
+<> a rdfc:Pipeline;
+   rdfc:consistsOf [
+       rdfc:instantiates rdfc:PyRunner;
+       rdfc:processor <log>, <send>;
+   ].
+
+
+### Define the processors
+<send> a rdfc:SendProcessorPy;
+       rdfc:writer <channel>;
+       rdfc:msg "Hello, World!", "Good afternoon, World!",
+                "Good evening, World!", "Good night, World!".
+
+<log> a rdfc:LogProcessorPy;
+      rdfc:reader <channel>;
+      rdfc:level "info";
+      rdfc:label "test".
+

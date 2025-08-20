@@ -1,0 +1,27 @@
+[project]
+name = "hello-world-pipeline-py"
+version = "0.0.1"
+description = "A simple RDF-Connect hello world pipeline example with Python processors."
+authors = [
+    { name = "Ieben Smessaert", email = "ieben.smessaert@ugent.be" }
+]
+readme = "README.md"
+requires-python = "==3.13.*"
+license = "MIT"
+dependencies = [
+    "rdfc-log-processor>=0.0.1",
+    "rdfc-runner>=0.0.1",
+]
+
+[project.urls]
+Homepage = "https://rdf-connect.github.io"
+Repository = "https://github.com/rdf-connect/example-pipelines/tree/main/python/hello-world"
+Issues = "https://github.com/rdf-connect/example-pipelines/issues"
+
+[tool.hatch.envs.default]
+type = "virtual"
+path = ".venv"
+system-packages = false
+installer = "uv"
+env-vars = { PYTHONPATH = "src" }
+
