@@ -1,0 +1,28 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix rdfc: <https://w3id.org/rdf-connect#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+
+
+### Import runners and processors
+<> owl:imports <https://javadoc.jitpack.io/com/github/rdf-connect/jvm-runner/runner/master-SNAPSHOT/runner-master-SNAPSHOT-index.jar>.
+<> owl:imports <https://javadoc.jitpack.io/com/github/rdf-connect/template-processor-jvm/main-SNAPSHOT/template-processor-jvm-main-SNAPSHOT-index.jar>.
+
+
+### Define the channels
+<channel> a rdfc:Writer, rdfc:Reader.
+
+
+### Define the pipeline
+<> a rdfc:Pipeline;
+   rdfc:consistsOf [
+      rdfc:instantiates rdfc:JvmRunner;
+      rdfc:processor <test>;
+   ].
+
+
+### Define the processors
+<test> a rdfc:TestProcessor;
+       rdfc:name "World";
+       rdfc:reader <channel>;
+       rdfc:writer <channel>.

@@ -6,3 +6,6 @@ The repository is structured to provide examples in different languages, each in
 
 ## Python
 - [python/hello-world](python/hello-world): A simple pipeline example logging "Hello, World!" using a log processor in Python.
+
+## Java
+- [java/hello-world](java/hello-world): A simple pipeline example logging "Hello, World!" using a log processor in Java.
