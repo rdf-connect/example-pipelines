@@ -1,0 +1,24 @@
+{
+  "name": "hello-world-pipeline-node",
+  "version": "0.0.1",
+  "description": "A simple RDF-Connect pipeline example with Node.js processors.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rdf-connect/example-pipelines.git"
+  },
+  "author": "Ieben Smessaert",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rdf-connect/example-pipelines/issues"
+  },
+  "homepage": "https://github.com/rdf-connect/example-pipelines/tree/main/node/hello-world#readme",
+  "dependencies": {
+    "@rdfc/orchestrator-js": "^1.0.0",
+    "@rdfc/js-runner": "^2.0.0-alpha.9",
+    "@rdfc/log-processor-ts": "^2.0.0"
+  }
+}

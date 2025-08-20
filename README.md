@@ -4,6 +4,9 @@ This repository contains example pipelines for RDF-Connect, demonstrating how to
 
 The repository is structured to provide examples in different languages, each in its own directory.
 
+## Node.js
+- [node/hello-world](node/hello-world): A simple pipeline example logging "Hello, World!" using a log processor in Node.js.
+
 ## Python
 - [python/hello-world](python/hello-world): A simple pipeline example logging "Hello, World!" using a log processor in Python.
 

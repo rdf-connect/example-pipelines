@@ -1,0 +1,32 @@
+@prefix rdfc: <https://w3id.org/rdf-connect#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+
+
+### Import runners and processors
+<> owl:imports <./node_modules/@rdfc/js-runner/index.ttl>.
+<> owl:imports <./node_modules/@rdfc/log-processor-ts/processor.ttl>.
+
+
+### Define the channels
+<channel> a rdfc:Writer, rdfc:Reader.
+
+
+### Define the pipeline
+<> a rdfc:Pipeline;
+   rdfc:consistsOf [
+       rdfc:instantiates rdfc:NodeRunner;
+       rdfc:processor <log>, <send>;
+   ].
+
+
+### Define the processors
+<send> a rdfc:SendProcessorJs;
+       rdfc:writer <channel>;
+       rdfc:msg "Hello, World!", "Good afternoon, World!",
+                "Good evening, World!", "Good night, World!".
+
+<log> a rdfc:LogProcessorJs;
+      rdfc:reader <channel>;
+      rdfc:level "info";
+      rdfc:label "test".
+
